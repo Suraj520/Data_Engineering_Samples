@@ -1,2 +1,2 @@
-# DataEngineering-A_Z
-Data Engineering Sample Projects : A to Z
+# Data Engineering Sample Projects
+Sample Project 1 : Real time streaming application built with Apache Spark, Hadoop and Kafka in Python.
