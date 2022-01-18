@@ -12,4 +12,11 @@
 select sal.emp_no, tis.title, sal.salary, sal.from_date, sal.to_date
 FROM salaries as sal
 INNER JOIN titles tis ON sal.emp_no = tis.emp_no
-WHERE tis.title='Senior Engineer' and date(sal.to_date) - date(sal.from_date)> 365*10;
+WHERE tis.title='Senior Engineer' and sal.salary>71046 and date(sal.to_date) - date(sal.from_date)> 365*10;
+--2. The ESOPs granting criterion has now been changed slightly w,r,t 1. Offering ESOPs only to those who have earned more than 71046*5 INR between 2002 and 2004. Needless to say ignore the employees who are not there.
+select sal.emp_no, tis.title, sal.salary, sal.from_date, sal.to_date
+FROM salaries as sal
+INNER JOIN titles tis ON sal.emp_no = tis.emp_no
+WHERE sal.salary * date(sal.to_date) - date(sal.from_date)> 71046*5 and tis.title='Senior Engineer' and `sal.to_date` BETWEEN '2002-01-01' AND '2004-12-31' and `sal.from_date` BETWEEN '2002-01-01' AND '2004-12-31';
+
+ 
